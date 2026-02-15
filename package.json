@@ -1,0 +1,27 @@
+{
+  "name": "educative-tracker",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c cyan,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "migrate": "npm run migrate -w backend",
+    "seed": "npm run seed -w backend",
+    "docker:up": "docker compose up -d --build",
+    "docker:up:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
+    "docker:down": "docker compose down",
+    "docker:down:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml down",
+    "docker:logs": "docker compose logs -f --tail=200",
+    "docker:logs:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml logs -f --tail=200",
+    "docker:ps": "docker compose ps",
+    "docker:ps:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml ps"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

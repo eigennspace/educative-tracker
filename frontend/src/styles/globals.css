@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --canvas: #0f172a;
+  --panel: #111827;
+  --panel-elevated: #172033;
+  --line: #1f2937;
+  --ink: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #14b8a6;
+  --danger: #f43f5e;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(20, 184, 166, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 14%, rgba(56, 189, 248, 0.12), transparent 24%),
+    linear-gradient(180deg, #111827 0%, #0f172a 45%);
+  color: var(--ink);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+* {
+  scrollbar-color: #334155 transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent), white 10%);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-line bg-slate-900/85 px-3 py-2 text-sm text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/40;
+  }
+
+  .btn {
+    @apply rounded-md bg-accent px-3 py-2 text-sm font-medium text-slate-900 transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60;
+  }
+
+  .btn-secondary {
+    @apply rounded-md border border-line px-3 py-2 text-sm text-ink transition hover:bg-slate-800/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60;
+  }
+
+  .btn-danger {
+    @apply rounded-md bg-rose-500 px-3 py-2 text-sm font-medium text-white transition hover:bg-rose-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400/70;
+  }
+
+  .panel {
+    @apply rounded-xl border border-line/90 bg-panel/85 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)] backdrop-blur-sm;
+  }
+
+  .panel-elevated {
+    @apply rounded-xl border border-slate-600/45 bg-slate-900/70 shadow-[0_25px_80px_-40px_rgba(15,23,42,0.95)] backdrop-blur-md;
+  }
+
+  .field-label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-muted;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/65 p-4;
+  }
+
+  .modal-card {
+    @apply w-full max-w-md rounded-xl border border-line bg-panel p-5 shadow-2xl;
+  }
+
+  .table-mobile-card {
+    @apply rounded-xl border border-line/80 bg-panel/90 p-3;
+  }
+}
