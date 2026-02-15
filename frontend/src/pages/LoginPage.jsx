@@ -33,55 +33,67 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="panel-elevated mx-auto mt-12 max-w-md p-6">
-      <h1 className="text-xl font-semibold text-ink">Sign in</h1>
-      <p className="mt-1 text-sm text-muted">Access your learning dashboard.</p>
-      <p className="mt-2 text-xs text-muted">Your session is token-based and isolated per account.</p>
-
-      <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
-        <div>
-          <label className="field-label" htmlFor={`${id}-email`}>Email</label>
-          <input
-            id={`${id}-email`}
-            className="input"
-            type="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={(event) => setForm({ ...form, email: event.target.value })}
-            required
-          />
+    <div className="flex min-h-screen items-center justify-center px-4 py-10">
+      <div className="w-full max-w-md">
+        <div className="mb-5 text-center">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-accent/50 bg-accent/10 text-sm font-semibold uppercase tracking-[0.14em] text-accent">
+            ET
+          </div>
+          <p className="text-xs uppercase tracking-[0.28em] text-muted">Educative Tracker</p>
+          <p className="mt-1 text-sm text-muted">Plan and track your learning sessions.</p>
         </div>
-        <div>
-          <label className="field-label" htmlFor={`${id}-password`}>Password</label>
-          <input
-            id={`${id}-password`}
-            className="input"
-            type="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={(event) => setForm({ ...form, password: event.target.value })}
-            required
-          />
+
+        <div className="panel-elevated p-6">
+          <h1 className="text-xl font-semibold text-ink">Sign in</h1>
+          <p className="mt-1 text-sm text-muted">Access your learning dashboard.</p>
+          <p className="mt-2 text-xs text-muted">Your session is token-based and isolated per account.</p>
+
+          <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
+            <div>
+              <label className="field-label" htmlFor={`${id}-email`}>Email</label>
+              <input
+                id={`${id}-email`}
+                className="input"
+                type="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={(event) => setForm({ ...form, email: event.target.value })}
+                required
+              />
+            </div>
+            <div>
+              <label className="field-label" htmlFor={`${id}-password`}>Password</label>
+              <input
+                id={`${id}-password`}
+                className="input"
+                type="password"
+                placeholder="Password"
+                value={form.password}
+                onChange={(event) => setForm({ ...form, password: event.target.value })}
+                required
+              />
+            </div>
+            <button className="btn w-full" type="submit" disabled={loading}>
+              {loading ? 'Signing in...' : 'Sign in'}
+            </button>
+          </form>
+
+          {error ? <p className="mt-3 text-sm text-rose-400" role="alert" aria-live="assertive">{error}</p> : null}
+
+          <p className="mt-3 text-sm text-muted">
+            <Link className="text-accent hover:brightness-110" to="/forgot-password">
+              Forgot password?
+            </Link>
+          </p>
+
+          <p className="mt-4 text-sm text-muted">
+            Need an account?{' '}
+            <Link className="text-accent hover:brightness-110" to="/register">
+              Create one
+            </Link>
+          </p>
         </div>
-        <button className="btn w-full" type="submit" disabled={loading}>
-          {loading ? 'Signing in...' : 'Sign in'}
-        </button>
-      </form>
-
-      {error ? <p className="mt-3 text-sm text-rose-400" role="alert" aria-live="assertive">{error}</p> : null}
-
-      <p className="mt-3 text-sm text-muted">
-        <Link className="text-accent hover:brightness-110" to="/forgot-password">
-          Forgot password?
-        </Link>
-      </p>
-
-      <p className="mt-4 text-sm text-muted">
-        Need an account?{' '}
-        <Link className="text-accent hover:brightness-110" to="/register">
-          Create one
-        </Link>
-      </p>
+      </div>
     </div>
   );
 }

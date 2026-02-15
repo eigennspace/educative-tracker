@@ -13,6 +13,7 @@ Local-first web app for tracking Educative.io learning progress with offline-fri
 - Strong user isolation on courses, sessions, progress, dashboard, and analytics
 - Course progress toggles including range-complete (`applyToPrevious` for lessons `1..N`)
 - Responsive UI with mobile card layouts for courses/sessions
+- Centered, branded auth entry screen with logo badge and product title above the login form
 - Accessibility-first improvements:
   - focus-managed confirmation modal
   - semantic progress indicators

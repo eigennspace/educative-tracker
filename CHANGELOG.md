@@ -12,6 +12,7 @@ The format is based on Keep a Changelog and follows semantic versioning where pr
 ### Changed
 - Docker helper script and npm scripts now include production-override commands.
 - README and architecture docs updated for Docker production behavior.
+- Login page layout now centers the auth card vertically with a branded header block above the form (`ET` + `Educative Tracker`).
 
 ### Fixed
 - Clarified deployment URLs to avoid implying backend host exposure in production override mode.

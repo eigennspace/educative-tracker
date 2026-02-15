@@ -299,6 +299,7 @@ Status: Implemented.
 Status: Implemented.
 
 - Responsive header and mobile card views for courses/sessions.
+- Login page auth card is vertically centered and includes a branded header (`ET` badge + app title) above the sign-in form.
 - Confirmation modal includes focus trap, initial focus, escape support, and focus restore.
 - Form UX improved with inline validation/help text and clearer error states.
 - Progress and heatmap visuals include stronger accessible semantics and text summaries.
