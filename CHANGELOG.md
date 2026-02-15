@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and follows semantic versioning where pr
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-02-15
+
 ### Added
 - Docker production override file (`docker-compose.prod.yml`) with stricter defaults.
 
